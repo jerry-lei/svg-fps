@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FPS Reaction</title>
+  </head>
+  <body>
+    <center>
+    <div style="width:800px; margin:0 auto;">
+      <p align="left">Instructions: Click on the circles. As time goes on, the circles will come up quicker. Circles will stay on the board until you click on them. Once you miss one of them, they will disapear. 
+      </p>
+    </div>
+    <br>
+    <svg id="game_board" height="450" width="800" style="border: 1px solid;"></svg>
+    <br>
+    </center>
+    
+    <div style="width:800px; margin:0 auto;">
+      <p align="right">
+	Score: </p>
+      <p id="score_count" align="right"> 0</p>
+    </div>
+
+    <center>
+    <button id="start_game" type="button">Play!</button><br>
+    </center>
+  </body>
+  <script src="game.js">
+  </script>
+</html>
