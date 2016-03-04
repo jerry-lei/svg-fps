@@ -1,3 +1,12 @@
+/*
+Possible additions:
+- avg response time
+- color options
+
+Need to do:
+- time remaining
+*/
+
 var board = document.getElementById("game_board");
 var but_start = document.getElementById("start_game");
 var score_count = document.getElementById("score_count");
@@ -13,6 +22,7 @@ var dot_class = function dot_class(){
 	var f = document.createElementNS("http://www.w3.org/2000/svg","circle");
 	f.setAttribute("cx", x);
 	f.setAttribute("cy", y);
+	f.setAttribute("r", 15);
 	f.setAttribute("fill", "yellow");
 	f.setAttribute("stroke", "black");
 	f.addEventListener("click", change);
@@ -23,4 +33,6 @@ var dot_class = function dot_class(){
     }
     board.addEventListener("click", clicked);
 }
-dot_class();
+
+but_start.addEventListener("click", dot_class);
+
