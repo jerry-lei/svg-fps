@@ -52,7 +52,7 @@ var game_fn = function game_fn() {
       }
 
       function getConfirmation() {
-        var r = confirm( "TIME'S UP!\nLEVEL: " + level.toString() +
+        var r = confirm( "TIME'S UP!\nLEVEL: " + (level-1).toString() +
                         "\nSCORE: " + score.toString() +
                         "\n\nOK: CONTINUE\nCANCEL: END GAME");
         if (r == true) {
