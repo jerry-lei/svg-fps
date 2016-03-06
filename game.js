@@ -10,7 +10,7 @@ Need to do:
 var board = document.getElementById("game_board");
 var but_start = document.getElementById("start_game");
 var score_count = document.getElementById("score_count");
-
+var time_count = document.getElementById("time");
 
 //needs to click once on board before it registers 'correct' click
 var game_fn = function game_fn(){
@@ -24,6 +24,22 @@ var game_fn = function game_fn(){
   board.appendChild(f);
   var score = 0;
 
+
+  var startTimer = function() {
+    var count = 30;
+    var counter = setInterval(timer, 1000);
+    function timer() {
+      count-= 1;
+      time_count.innerHTML = count;
+      if (count <= 0) {
+        clearInterval(counter);
+        alert("TIME'S UP!\nYour final score was:  " + score.toString());
+        return;
+      }
+    }
+  }
+  startTimer();
+
   var change = function(e){
     e.preventDefault();
     var size = Math.floor((Math.random()*10)+100);
@@ -34,11 +50,13 @@ var game_fn = function game_fn(){
     score += 5
     score_count.innerHTML = score.toString();
   }
+
   var move_dot = function move_dot(){
     f.addEventListener("click", change);
     board.appendChild(f);
   }
+
   board.addEventListener("click", move_dot);
-}
+};
 
 but_start.addEventListener("click", game_fn);
