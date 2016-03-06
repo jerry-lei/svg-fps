@@ -14,19 +14,23 @@ var score_count = document.getElementById("score_count");
 
 //needs to click once on board before it registers 'correct' click
 var game_fn = function game_fn(){
-  var f = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  f.setAttribute("r", Math.floor((Math.random()*10)+20));
-  f.setAttribute("cx", Math.floor((Math.random()*800)));
-  f.setAttribute("cy", Math.floor((Math.random()*450)));
-  f.setAttribute("fill","red");
+  var f = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  var size = Math.floor((Math.random()*50)+50);
+  f.setAttributeNS(null,'height',size);
+  f.setAttributeNS(null,'width',size);
+  f.setAttributeNS('http://www.w3.org/1999/xlink','href','target.png');
+  f.setAttribute(null,"x", Math.floor((Math.random()*750)));
+  f.setAttribute(null,"y", Math.floor((Math.random()*400)));
   board.appendChild(f);
   var score = 0;
 
   var change = function(e){
     e.preventDefault();
-    f.setAttribute("r", Math.floor((Math.random()*10)+20));
-    f.setAttribute("cx", Math.floor((Math.random()*800)));
-    f.setAttribute("cy", Math.floor((Math.random()*450)));
+    var size = Math.floor((Math.random()*10)+100);
+    f.setAttributeNS(null,'height',size);
+    f.setAttributeNS(null,'width',size);
+    f.setAttribute("x", Math.floor((Math.random()*750)));
+    f.setAttribute("y", Math.floor((Math.random()*400)));
     score += 5
     score_count.innerHTML = score.toString();
   }
