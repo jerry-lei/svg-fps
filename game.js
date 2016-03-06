@@ -2,9 +2,11 @@
 Possible additions:
 - avg response time
 - color options
+- make the target move after certain number of seconds/ if user too slow, too bad!!
+- if do not click on img, then deduct points
 
 Need to do:
-- time remaining (easy to add response time afterwards)
+- add response time
 */
 
 var board = document.getElementById("game_board");
