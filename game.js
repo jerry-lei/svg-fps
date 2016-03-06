@@ -25,7 +25,6 @@ var game_over; //if reach level 10, game over
 
 //needs to click once on board before it registers 'correct' click
 var game_fn = function game_fn() {
-  level = 1;
   size_det = 110 - (level * 20);
 
   //set initial attributes of target image
@@ -58,12 +57,12 @@ var game_fn = function game_fn() {
                         "\n\nOK: CONTINUE\nCANCEL: END GAME");
         if (r == true) {
           x = "Player wants to continue! Press Play! to start next level."
-          level += 2;
         }
         else {
           x = "***FINAL SCORE: " + score.toString() + "***";
           score = 0;
           score_count.innerHTML = score.toString();
+          level = 1;
         }
 
         document.getElementById("continue").innerHTML = x;
@@ -72,7 +71,6 @@ var game_fn = function game_fn() {
 
       count = 10;
       time_count.innerHTML = count.toString();
-      //board.removeEventListener("click", score);
       return;
     }
   }
@@ -91,7 +89,6 @@ var game_fn = function game_fn() {
   }
 
     f.addEventListener("click", change);
-    //board.addEventListener("click", change);
 };
 
 but_start.addEventListener("click", game_fn);
