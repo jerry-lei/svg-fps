@@ -23,8 +23,11 @@ var level = 1;
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
 
+var high_score = 0;
+
 //needs to click once on board before it registers 'correct' click
 var game_fn = function game_fn() {
+  game_over = false;
   size_det = 110 - (level * 20);
 
   //set initial attributes of target image
@@ -44,31 +47,41 @@ var game_fn = function game_fn() {
     if (count <= 0) { //END OF LEVEL/TIME OF ONE GAME
       clearInterval(counter);
       f.removeEventListener("click", change);
-      level += 1;
-      if (level == 5) {
-          alert("YOU FINISHED THE GAME!\n\nFINAL SCORE: " + score.toString());
-          score = 0;
-          return;
-      }
 
+      var setHighScore = function() {
+          if (score > high_score) {
+            high_score = score;
+            document.getElementById("high").innerHTML = high_score;
+        }
+      }
+      
+//Game over at level 5 <-- might want to improve
+      if ((level + 1) == 5) {
+        alert("YOU FINISHED THE GAME!\n\nFINAL SCORE: " + score.toString());
+        setHighScore();
+        score = 0;
+        return;
+      }
+//asks at the end of each level if player wants to continue
       function getConfirmation() {
-        var r = confirm( "TIME'S UP!\nLEVEL: " + (level-1).toString() +
+        var r = confirm( "TIME'S UP!\nLEVEL: " + level.toString() +
                         "\nSCORE: " + score.toString() +
                         "\n\nOK: CONTINUE\nCANCEL: END GAME");
         if (r == true) {
           x = "Player wants to continue! Press Play! to start next level."
+          level += 1;
         }
         else {
           x = "***FINAL SCORE: " + score.toString() + "***";
+          setHighScore();
           score = 0;
           score_count.innerHTML = score.toString();
           level = 1;
         }
-
         document.getElementById("continue").innerHTML = x;
       }
       getConfirmation();
-
+//resets timer
       count = 10;
       time_count.innerHTML = count.toString();
       return;
@@ -90,5 +103,9 @@ var game_fn = function game_fn() {
 
     f.addEventListener("click", change);
 };
+
+
+
+
 
 but_start.addEventListener("click", game_fn);
