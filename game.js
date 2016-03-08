@@ -1,12 +1,11 @@
 /*
 Possible additions:
-- avg response time
+
 - color options
 - make the target move after certain number of seconds/ if user too slow, too bad!!
 - if do not click on img, then deduct points
 
-Need to do:
-- add response time
+
 */
 
 var board = document.getElementById("game_board");
@@ -52,7 +51,7 @@ var game_fn = function game_fn() {
     if (count <= 0) { //END OF LEVEL/TIME OF ONE GAME
       clearInterval(counter);
       f.removeEventListener("click", change);
-
+	
       var setHighScore = function() {
           if (score > high_score) {
             high_score = score;
@@ -76,6 +75,9 @@ var game_fn = function game_fn() {
         if (r == true) {
           x = "Player wants to continue! Press Play! to start next level."
           level += 1;
+	    if(level > 4){
+		f.setAttributeNS('http://www.w3.org/1999/xlink','href','target2.png');
+	    }
         }
         else {
           x = "***FINAL SCORE: " + score.toString() + "***";
