@@ -54,12 +54,13 @@ var game_fn = function game_fn() {
             document.getElementById("high").innerHTML = high_score;
         }
       }
-      
+
 //Game over at level 5 <-- might want to improve
-      if ((level + 1) == 5) {
+      if (level == 5){ //+ 1) == 5) {
         alert("YOU FINISHED THE GAME!\n\nFINAL SCORE: " + score.toString());
         setHighScore();
         score = 0;
+        level = 1;
         return;
       }
 //asks at the end of each level if player wants to continue
@@ -95,17 +96,17 @@ var game_fn = function game_fn() {
     f.setAttributeNS(null,'width',size);
     f.setAttribute("x", Math.floor((Math.random()*700)));
     f.setAttribute("y", Math.floor((Math.random()*350)));
-    score += 5;
+    score += (5 * level);
     console.log(score);
     score_count.innerHTML = score.toString();
     board.appendChild(f);
-  }
-
+  }/*
+  var deduct_points = function(e){
+    e.preventDefault();
+    score -= 1;
+  }*/
     f.addEventListener("click", change);
+    //board.addEventListener("click", deduct_points);
 };
-
-
-
-
 
 but_start.addEventListener("click", game_fn);
