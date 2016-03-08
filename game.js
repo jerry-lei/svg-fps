@@ -13,6 +13,7 @@ var board = document.getElementById("game_board");
 var but_start = document.getElementById("start_game");
 var score_count = document.getElementById("score_count");
 var time_count = document.getElementById("time");
+var rt = document.getElementById("response");
 
 var f = document.createElementNS("http://www.w3.org/2000/svg", "image");
 f.setAttributeNS('http://www.w3.org/1999/xlink','href','target.png');
@@ -20,6 +21,10 @@ f.setAttributeNS('http://www.w3.org/1999/xlink','href','target.png');
 var score = 0;
 var count = 10;
 var level = 1;
+var time1 = 10;
+var time2 = 0;
+var avg = 0;
+var clicks = 0;
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
 
@@ -57,7 +62,7 @@ var game_fn = function game_fn() {
 
 //Game over at level 5 <-- might want to improve
       if (level == 5){ //+ 1) == 5) {
-        alert("YOU FINISHED THE GAME!\n\nFINAL SCORE: " + score.toString());
+        alert("YOU FINISHED THE GAME!\n\nFINAL SCORE: " + score.toString()+"\nAverage Response Time: "+(avg/clicks).toString());
         setHighScore();
         score = 0;
         level = 1;
@@ -92,10 +97,19 @@ var game_fn = function game_fn() {
   var change = function(e){
     e.preventDefault();
     var size = Math.floor((Math.random()*20)+size_det);
+      time2 = count;
+      var newrt = time1-time2;
+      if(newrt < 0){
+	  newrt = 1;
+      }
+      rt.innerHTML = newrt.toString();
+      clicks = clicks+1;
+      avg = avg + newrt;
     f.setAttributeNS(null,'height',size);
     f.setAttributeNS(null,'width',size);
     f.setAttribute("x", Math.floor((Math.random()*700)));
     f.setAttribute("y", Math.floor((Math.random()*350)));
+      time1 = count;
     score += (5 * level);
     console.log(score);
     score_count.innerHTML = score.toString();
