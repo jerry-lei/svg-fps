@@ -8,6 +8,11 @@ Possible additions:
 
 */
 
+var target_choice = document.getElementById("target_choice");
+var show_target = document.getElementById("show_target");
+var but_target = document.getElementById("target_change");
+//show_target.setAttribute("src", picture_link);
+
 var board = document.getElementById("game_board");
 var but_start = document.getElementById("start_game");
 var score_count = document.getElementById("score_count");
@@ -15,7 +20,7 @@ var time_count = document.getElementById("time");
 var rt = document.getElementById("response");
 
 var f = document.createElementNS("http://www.w3.org/2000/svg", "image");
-f.setAttributeNS('http://www.w3.org/1999/xlink','href','target.png');
+
 
 var score = 0;
 var count = 10;
@@ -26,6 +31,9 @@ var avg = 0;
 var clicks = 0;
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
+var picture_link = "target.png";
+
+f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
 
 var high_score = 0;
 
@@ -75,9 +83,6 @@ var game_fn = function game_fn() {
         if (r == true) {
           x = "Player wants to continue! Press Play! to start next level."
           level += 1;
-	    if(level > 4){
-		f.setAttributeNS('http://www.w3.org/1999/xlink','href','target2.png');
-	    }
         }
         else {
           x = "***FINAL SCORE: " + score.toString() + "***";
@@ -97,6 +102,7 @@ var game_fn = function game_fn() {
   }
 
   var change = function(e){
+
     e.preventDefault();
     var size = Math.floor((Math.random()*20)+size_det);
       time2 = count;
@@ -124,5 +130,9 @@ var game_fn = function game_fn() {
     f.addEventListener("click", change);
     //board.addEventListener("click", deduct_points);
 };
+var change_pic = function change_pic(){
+    
+}
 
 but_start.addEventListener("click", game_fn);
+but_target.addEventListener("click", change_pic);

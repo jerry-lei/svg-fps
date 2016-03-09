@@ -25,7 +25,16 @@
     <center>
     HIGH SCORE: <span id="high">0</span>
     <p id="continue"></p>
-    <button id="start_game" type="button">Play!</button><br>
+    <button id="start_game" type="button">Play!</button><br><br><br>
+    Select a target: 
+    <select id="target_choice">
+      <option value="t1">Target 1</option>
+      <option value="t2">Target 2</option>
+      <option value="t3">Target 3</option>
+    </select>
+    <button id="target_change" type="button">Change Target</button>
+    <br>Current target: <br>
+    <img src="target.png" height="75" width="75" id="show_target">
     </center>
   </body>
   <script src="game.js">
