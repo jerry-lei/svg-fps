@@ -10,6 +10,21 @@
       </p>
     </div>
     <center>
+    Select a target: 
+    <select id="target_choice">
+      <option value="target.png" selected="selected">Target 1</option>
+      <option value="target2.png">Target 2</option>
+      <option value="target3.png">Target 3</option>
+      <option value="target4.png">Target 4</option>
+      <option value="target5.png">Target 5</option>
+      <option value="target6.png">Target 6</option>
+      <option value="target7.png">Target 7</option>
+      <option value="target8.png">Target 8</option>
+    </select>
+    <button id="target_change" type="button">Change Target</button>
+    <br>Current target: <br>
+    <img src="target.png" height="75" width="75" id="show_target">
+
       <div style="width:800px; margin:0 auto">
 	Response Time: <span id="response">N/A</span> second(s)
       </div>
@@ -26,15 +41,6 @@
     HIGH SCORE: <span id="high">0</span>
     <p id="continue"></p>
     <button id="start_game" type="button">Play!</button><br><br><br>
-    Select a target: 
-    <select id="target_choice">
-      <option value="t1">Target 1</option>
-      <option value="t2">Target 2</option>
-      <option value="t3">Target 3</option>
-    </select>
-    <button id="target_change" type="button">Change Target</button>
-    <br>Current target: <br>
-    <img src="target.png" height="75" width="75" id="show_target">
     </center>
   </body>
   <script src="game.js">

@@ -131,7 +131,10 @@ var game_fn = function game_fn() {
     //board.addEventListener("click", deduct_points);
 };
 var change_pic = function change_pic(){
-    
+    picture_link = target_choice.options[target_choice.selectedIndex].value;
+    show_target.setAttribute("src", picture_link);
+    f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
+    console.log("hello");
 }
 
 but_start.addEventListener("click", game_fn);
