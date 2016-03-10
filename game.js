@@ -1,7 +1,5 @@
 /*
 Possible additions:
-
-- color options
 - make the target move after certain number of seconds/ if user too slow, too bad!!
 - if do not click on img, then deduct points
 
@@ -31,9 +29,8 @@ var avg = 0;
 var clicks = 0;
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
-var picture_link = "img/target.png";
-
-f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
+//var picture_link = "img/target.png";
+var picture_link = target_choice.options[target_choice.selectedIndex].value;f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
 
 var high_score = 0;
 
