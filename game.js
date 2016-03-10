@@ -31,7 +31,7 @@ var avg = 0;
 var clicks = 0;
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
-var picture_link = "target.png";
+var picture_link = "img/target.png";
 
 f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
 
