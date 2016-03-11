@@ -6,18 +6,22 @@
   <body>
 
     <style>
-      .test{
+
+      .test {
       cursor: crosshair;
       }
+
+
     </style>
 
     <center>
-    <div style="width:800px; margin:0 auto;">
-      <p align="left">Instructions: Click on the targets to progress through the levels (10 seconds each). As the levels go on, the target will get smaller.
+    <div style="width:600px; margin:0 auto;">
+      <h1>FPS Reaction</h1>
+      <p align="left">Instructions: Click on the targets to earn points and progress through the levels (10 seconds each). As the levels go on, the target will get smaller and you will earn more points.
       </p>
     </div>
     <center>
-    Select a target: 
+    #1.&nbsp;&nbsp;Select a target:&nbsp;&nbsp;&nbsp;
     <select id="target_choice">
       <option value="img/target.png" selected="selected">Target 1</option>
       <option value="img/target2.png">Target 2</option>
@@ -27,28 +31,33 @@
       <option value="img/target6.png">Target 6</option>
       <option value="img/target7.png">Target 7</option>
       <option value="img/target8.png">Target 8</option>
-    </select>
+    </select>&nbsp;&nbsp;&nbsp;
     <button id="target_change" type="button">Change Target</button>
-    <br>Current target: <br>
+    <br><br>Current target: <br>
     <img src="img/target.png" height="50" width="50" id="show_target">
+    </div>
+    <br><br>#2.&nbsp;&nbsp;Click "Play" button below to start the game.
+    <p id="continue"></p>
+    <center>
 
-      <div style="width:800px; margin:0 auto">
-	Response Time: <span id="response">N/A</span> second(s)
-      </div>
+      <button id="start_game" type="button">Play!</button>
+      <br><br><hr style="border-top: 1px dashed #8c8b8b;" />
+    <div style="width:600px; margin:0 auto; padding-top:20px;">
+	   Response Time: <span id="response">N/A</span> second(s)
+   </div>
     </center>
     <svg class="test" id="game_board" height="450" width="800" style="border: 1px solid;"></svg>
-    <br>
-    </center>
+
     <div style="width:800px; margin:0 auto">
-      TIME REMAINING: <span id="time" align="left">10</span>
+      <p align="left">TIME REMAINING: <span id="time">10</span></p>
       <p align="right">SCORE:  <span id="score_count">0</span></p>
     </div>
 
-    <center>
-    HIGH SCORE: <span id="high">0</span>
-    <p id="continue"></p>
-    <button id="start_game" type="button">Play!</button><br><br><br>
-    </center>
+  <center>
+
+    CURRENT HIGH SCORE: <span id="high">0</span>
+  </center>
+
   </body>
   <script src="game.js">
   </script>

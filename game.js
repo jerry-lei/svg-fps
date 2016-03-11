@@ -20,19 +20,21 @@ var rt = document.getElementById("response");
 var f = document.createElementNS("http://www.w3.org/2000/svg", "image");
 
 
-var score = 0;
-var count = 10;
-var level = 1;
-var time1 = 10;
-var time2 = 0;
+var score = 0; //current game score
+var count = 10; //countdown time left
+var level = 1; //current level (controls points & size of target)
+var time1 = 10; //
+var time2 = 0; //
 var avg = 0;
 var clicks = 0;
+
 var size_det; //determines size of target based on level
 var game_over; //if reach level 10, game over
 //var picture_link = "img/target.png";
+
 var picture_link = target_choice.options[target_choice.selectedIndex].value;f.setAttributeNS('http://www.w3.org/1999/xlink','href',picture_link);
 
-var high_score = 0;
+var high_score = 0; // stores high score until reload
 
 //needs to click once on board before it registers 'correct' click
 var game_fn = function game_fn() {
@@ -48,15 +50,15 @@ var game_fn = function game_fn() {
   board.appendChild(f);
 
   //new counter for every new game
-  var counter = setInterval(timer, 1000);
+  var counter = setInterval(timer, 10);
   function timer() {
-    count-= 1;
-    time_count.innerHTML = count;
+    count-= .01;
+    time_count.innerHTML = Math.round(count * 10) / 10;;
 
     if (count <= 0) { //END OF LEVEL/TIME OF ONE GAME
       clearInterval(counter);
       f.removeEventListener("click", change);
-	
+
       var setHighScore = function() {
           if (score > high_score) {
             high_score = score;
@@ -78,7 +80,7 @@ var game_fn = function game_fn() {
                         "\nSCORE: " + score.toString() +
                         "\n\nOK: CONTINUE\nCANCEL: END GAME");
         if (r == true) {
-          x = "Player wants to continue! Press Play! to start next level."
+          x = "***Player wants to continue! Press Play! to start next level.***"
           level += 1;
         }
         else {
@@ -107,6 +109,7 @@ var game_fn = function game_fn() {
       if(newrt < 0){
 	  newrt = 1;
       }
+      newrt = Math.round(newrt * 1000) / 1000;
       rt.innerHTML = newrt.toString();
       clicks = clicks+1;
       avg = avg + newrt;
