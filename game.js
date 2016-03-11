@@ -23,8 +23,10 @@ var f = document.createElementNS("http://www.w3.org/2000/svg", "image");
 var score = 0; //current game score
 var count = 10; //countdown time left
 var level = 1; //current level (controls points & size of target)
-var time1 = 10; //
-var time2 = 0; //
+
+//for response time:
+var time1 = 10;
+var time2 = 0;
 var avg = 0;
 var clicks = 0;
 
@@ -72,6 +74,7 @@ var game_fn = function game_fn() {
         setHighScore();
         score = 0;
         level = 1;
+        count = 10;
         return;
       }
 //asks at the end of each level if player wants to continue
